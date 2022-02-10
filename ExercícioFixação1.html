@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        alert('1 - Faça um Programa que peça as 4 notas bimestrais e mostre a média');
+        console.log('Questão 1');
+        let nome = prompt('Digite o nome do aluno: ');
+        console.log(nome);
+        let nota1 = parseFloat(prompt('Digite a primeira nota: '));
+        console.log('Nota 1: ' + nota1);
+        let nota2 = parseFloat(prompt('Digite a segunda nota: '));
+        console.log('Nota 2: ' + nota2);  
+        let nota3 = parseFloat(prompt('Digite a terceira nota: '));
+        console.log('Nota 3: ' + nota3);     
+        let nota4 = parseFloat(prompt('Digite a quarta nota: '));
+        console.log('Nota 4: ' + nota4);
+        media = (nota1 + nota2 + nota3 + nota4)/4;
+        console.log('A média de ' + nome + ' é ' + media + ', e a média para aprovação é 7.0.');
+
+        alert('2 - Faça um Programa que peça o raio de um círculo, calcule e mostre sua área');
+        console.log('Questão 2');
+        let raio = prompt('Digite o raio do círculo em centímetros: ');
+        circ = 2 * 3.14159 * raio;
+        console.log('A circunferência para o círculo de raio ' + raio + ' é de ' + circ + ' centímetros.');
+
+        alert('3 - Faça um Programa que peça a temperatura em graus Fahrenheit, transforme e mostre a temperatura em graus Celsius.');
+        console.log('Questão 3');
+        let fahrenheit = prompt('Digite a temperatura em Fahrenheit: ');
+        celsius = 5 * ((fahrenheit-32) / 9) 
+        console.log(fahrenheit + '°F equivale a ' + celsius.toFixed(2) + '°C.');
+
+        alert('4 - Faça um programa que calcule e mostre a área e o perímetro de uma sala retangular cujas medidas são fornecidas pelo usuário.');
+        console.log('Questão 4');
+        let comprimento = prompt('Qual o comprimento da sala em metros? ');
+        let largura = prompt('Qual a largura da sala em metros? ');
+        area = comprimento * largura;
+        perimetro = 2*comprimento + 2*largura;
+        console.log('Comprimento: ' + comprimento + '\nLargura: ' + largura); 
+        console.log('Para as medidas inseridas, temos o perímetro de ' + perimetro + ' m e area de ' + area + ' m2.'); 
+
+        alert('5 - Escreva um programa para ler as dimensões de uma cozinha retangular, em seguida calcular e escrever a quantidade'
+            + ' de caixas de azulejos necessárias para cobrir o chão da cozinha. Cada caixa de azulejos possui 2,5 m2.');
+        console.log('Questão 5');
+        let comp = prompt('Qual o comprimento da cozinha em metros? ');
+        let larg = prompt('Qual a largura da cozinha em metros? ');
+        caixas = (comp * larg)/2.5;
+        console.log('Comprimento: ' + comp + '\nLargura: ' + larg);
+        console.log('Você vai precisar de ' + caixas + ' caixas de azulejo.')
+
+    </script>
+</body>
+</html>
