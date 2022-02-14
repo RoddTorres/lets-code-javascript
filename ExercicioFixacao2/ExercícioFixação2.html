@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Questão 1
+        alert(`1 - Faça um programa que leia 2 números inteiros, calcule e exiba a média aritmética e o produto dos números. O seu programa deve, obrigatoriamente, utilizar as seguintes funções feitas por você:
+        calcula_media(): recebe 2 números inteiros como parâmetros e retorne a média dos números; 
+        calcula_produto(): recebe 2 números inteiros como parâmetros e retorna o produto dos números`);
+        console.log('Questão 1');
+        let num1 = parseInt(prompt('Digite o primeiro número: '));
+        console.log(`1º número: ${num1}`);
+        let num2 = parseInt(prompt('Digite o segundo número: '));
+        console.log(`2º número: ${num2}`);
+        console.log(`Média: ${calcula_media(num1, num2)}`);
+        console.log(`Produto: ${calcula_produto(num1, num2)}`);
+        alert(`A média dos números é ${calcula_media(num1, num2)} e o produto é ${calcula_produto(num1, num2)}`)
+
+        //Questão 2
+        alert(`2 - Faça um programa que calcule e imprima a média ponderada de um aluno. Inicialmente, o programa deverá ler o peso da primeira prova e o peso da segunda prova (ambos inteiros). A seguir, o programa deverá ler os seguintes dados do aluno: matrícula (inteiro), nota da primeira prova e nota da segunda prova (ambas reais). Por último, o programa deve mostrar a matricula do aluno seguida da sua média. O seu programa deve, obrigatoriamente, utilizar a seguinte função feita por você:
+        calcula_media_ponderada(): recebe 2 notas (reais) e seus respectivos pesos (inteiros) como parâmetros e retorna a média ponderada dos valores`);
+        console.log('Questão 2');
+        let nome = prompt('Digite o nome do aluno: ');
+        console.log(`Aluno: ${nome}`);
+        let matricula = parseInt(prompt('Matrícula do aluno: '));
+        console.log(`Matrícula: ${matricula}`);
+        let nota1 = parseFloat(prompt('Digite a primeira nota: '));
+        console.log(`1º nota: ${nota1}`);
+        let nota2 = parseFloat(prompt('Digite a segunda nota: '));
+        console.log(`2º nota: ${nota2}`);
+        let peso1 = parseInt(prompt('Peso da primeira prova: '));
+        console.log(`Peso 1ª prova: ${peso1}`);
+        let peso2 = parseInt(prompt('Peso da segunda prova: '));
+        console.log(`Peso 2ª prova: ${peso2}`);
+        console.log(`Média ponderada: ${calcula_media_ponderada(nota1, nota2, peso1, peso2)}`);
+        alert(`Matrícula do aluno: ${matricula} 
+        Média: ${calcula_media_ponderada(nota1, nota2, peso1, peso2).toFixed(2)}`);
+
+        //FUNÇÕES
+        //Questão 1
+        function calcula_media(x, y) {
+            media = (x + y)/2;
+            return media;
+        }
+
+        function calcula_produto(x, y) {
+            produto = x*y;
+            return produto;
+        } 
+
+        //Questão 2
+        function calcula_media_ponderada(x, y, a, b) {
+            media_ponderada = (x*a + y*b) / (a + b);
+            return media_ponderada;
+        }     
+
+
+    </script>
+
+</body>
+</html>

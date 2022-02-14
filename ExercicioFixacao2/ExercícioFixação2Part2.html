@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Questão 3
+        alert(`3 - Altere o programa do exercício 2 para que ele utilize a função calcula_produto do exercício 1 no cálculo da média ponderada`);
+        console.log('Questão 3');
+        let nome = prompt('Digite o nome do aluno: ');
+        console.log(`Aluno: ${nome}`);
+        let matricula = parseInt(prompt('Matrícula do aluno: '));
+        console.log(`Matrícula: ${matricula}`);
+        let nota1 = parseFloat(prompt('Digite a primeira nota: '));
+        console.log(`1º nota: ${nota1}`);
+        let nota2 = parseFloat(prompt('Digite a segunda nota: '));
+        console.log(`2º nota: ${nota2}`);
+        let peso1 = parseInt(prompt('Peso da primeira prova: '));
+        console.log(`Peso 1ª prova: ${peso1}`);
+        let peso2 = parseInt(prompt('Peso da segunda prova: '));
+        console.log(`Peso 2ª prova: ${peso2}`);
+        console.log(`Média ponderada: ${calcula_media_ponderada(calcula_produto(nota1, peso1), calcula_produto(nota2, peso2), peso1, peso2)}`);
+        alert(`Matrícula do aluno: ${matricula} 
+        Média: ${calcula_media_ponderada(calcula_produto(nota1, peso1), calcula_produto(nota2, peso2), peso1, peso2).toFixed(2)}`);
+
+
+        //Questão 4
+        alert(`4 - Altere o programa do exercício 3 para que ele processe os dados de 2 alunos ao invés de apenas 1`);
+        console.log('Questão 4');
+        let nome1 = prompt('Digite o nome do primeiro aluno: ');
+        console.log(`Aluno: ${nome1}`);
+        let matricula1 = parseInt(prompt('Matrícula do aluno: '));
+        console.log(`Matrícula: ${matricula1}`);
+        let nota_1_1 = parseFloat(prompt('Digite a primeira nota: '));
+        console.log(`1º nota: ${nota_1_1}`);
+        let nota_2_1 = parseFloat(prompt('Digite a segunda nota: '));
+        console.log(`2º nota: ${nota_2_1}`);
+        let peso_1 = parseInt(prompt('Peso da primeira prova: '));
+        console.log(`Peso 1ª prova: ${peso_1}`);
+        let peso_2 = parseInt(prompt('Peso da segunda prova: '));
+        console.log(`Peso 2ª prova: ${peso_2}`);
+        console.log(`Média ponderada: ${calcula_media_ponderada(calcula_produto(nota_1_1, peso_1), calcula_produto(nota_2_1, peso_2), peso_1, peso_2)}`);
+        
+        //Dados segundo aluno
+        let nome2 = prompt('Digite o nome do segundo aluno: ');
+        console.log(`Aluno: ${nome2}`);
+        let matricula2 = parseInt(prompt('Matrícula do aluno: '));
+        console.log(`Matrícula: ${matricula2}`);
+        let nota_1_2 = parseFloat(prompt('Digite a primeira nota: '));
+        console.log(`1º nota: ${nota_1_2}`);
+        let nota_2_2 = parseFloat(prompt('Digite a segunda nota: '));
+        console.log(`2º nota: ${nota_2_2}`);
+        console.log(`Média ponderada: ${calcula_media_ponderada(calcula_produto(nota_1_2, peso_1), calcula_produto(nota_2_2, peso_2), peso_1, peso_2)}`);
+
+        alert(`Matrícula do aluno: ${matricula1} 
+        Média: ${calcula_media_ponderada(calcula_produto(nota_1_1, peso_1), calcula_produto(nota_2_1, peso_2), peso_1, peso_2).toFixed(2)}
+        Matrícula do aluno: ${matricula2} 
+        Média: ${calcula_media_ponderada(calcula_produto(nota_1_2, peso_1), calcula_produto(nota_2_2, peso_2), peso_1, peso_2).toFixed(2)}`);
+
+
+        //FUNÇÕES
+        //Questões 3 e 4 
+        function calcula_media_ponderada(produto1, produto2, a, b) {
+            media_ponderada = (produto1 + produto2) / (a + b)
+            return media_ponderada;
+        }
+
+        function calcula_produto(x, y) {
+            produto = x*y;
+            return produto;
+        } 
+
+        
+    </script>
+</body>
+</html>

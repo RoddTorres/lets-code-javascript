@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Questão 5
+        alert(`5 - Faça um programa que leia um valor real representando o gasto realizado por um cliente de um restaurante e imprima o valor total a ser pago, considerando os 10% do garçom. O seu programa deve, obrigatoriamente, utilizar uma função que receba o valor do gasto e retorne o valor total a ser pago pelo cliente`);
+        console.log('Questão 5');
+
+        let valor = prompt('Valor consumido pelo cliente: ');
+        console.log(`Conta total: R$${conta_restaurante(valor).toFixed(2)}`);
+        alert(`Total a pagar: R$${conta_restaurante(valor).toFixed(2)}`);
+
+        //Questão 6
+        alert(`6 - Implemente, utilizando funções, um programa que receba do usuário o valor do salário bruto de um funcionário e imprima o valor com descontos de INSS, FGTS e Plano de Saúde. O programa deve utilizar uma função para calcular cada um dos descontos, sendo que 
+        estas funções devem receber o valor do salário bruto e retornar o valor a ser descontado. Os valores descontados devem ser:
+
+        - INSS: 10% do valor bruto;
+        - FGTS: 8%;
+        - Plano de Saúde: R$100,00.`);
+        console.log('Questão 6');
+        let salario_bruto = prompt('Salário bruto: ');
+        alert(`Descontos e salário: 
+        ${descontos(salario_bruto)}`);
+
+
+        //FUNÇÕES
+        //Questão 5
+        function conta_restaurante(consumo) {
+            conta = consumo*1.1;
+            return conta;
+        }
+
+        //Questão 6
+        function descontos(salario_bruto) {
+            let inss = (salario_bruto / 100) * 10;
+            let fgts = (salario_bruto / 100) * 8;
+            let plano_saude = 100;
+            let salario_liquido = salario_bruto - inss - fgts - plano_saude;
+            return `INSS: R$${inss.toFixed(2)}
+            FGTS: R$${fgts.toFixed(2)}
+            Plano de Saúde: R$${plano_saude.toFixed(2)}
+            Salário Liquido: R$${salario_liquido.toFixed(2)}`;
+            }
+
+
+    </script>
+</body>
+</html>
