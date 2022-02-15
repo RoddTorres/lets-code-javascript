@@ -9,7 +9,8 @@
 <body>
     <script>
         //Questão 1
-        alert(`1 - Faça um programa que leia 2 números inteiros, calcule e exiba a média aritmética e o produto dos números. O seu programa deve, obrigatoriamente, utilizar as seguintes funções feitas por você:
+        alert(`1 - Faça um programa que leia 2 números inteiros, calcule e exiba a média aritmética e o produto dos números. 
+        O seu programa deve, obrigatoriamente, utilizar as seguintes funções feitas por você:
         calcula_media(): recebe 2 números inteiros como parâmetros e retorne a média dos números; 
         calcula_produto(): recebe 2 números inteiros como parâmetros e retorna o produto dos números`);
         console.log('Questão 1');
@@ -22,7 +23,10 @@
         alert(`A média dos números é ${calcula_media(num1, num2)} e o produto é ${calcula_produto(num1, num2)}`)
 
         //Questão 2
-        alert(`2 - Faça um programa que calcule e imprima a média ponderada de um aluno. Inicialmente, o programa deverá ler o peso da primeira prova e o peso da segunda prova (ambos inteiros). A seguir, o programa deverá ler os seguintes dados do aluno: matrícula (inteiro), nota da primeira prova e nota da segunda prova (ambas reais). Por último, o programa deve mostrar a matricula do aluno seguida da sua média. O seu programa deve, obrigatoriamente, utilizar a seguinte função feita por você:
+        alert(`2 - Faça um programa que calcule e imprima a média ponderada de um aluno. Inicialmente, o programa deverá ler o peso da primeira prova 
+        e o peso da segunda prova (ambos inteiros). A seguir, o programa deverá ler os seguintes dados do aluno: matrícula (inteiro), nota da primeira 
+        prova e nota da segunda prova (ambas reais). Por último, o programa deve mostrar a matricula do aluno seguida da sua média. O seu programa deve, 
+        obrigatoriamente, utilizar a seguinte função feita por você:
         calcula_media_ponderada(): recebe 2 notas (reais) e seus respectivos pesos (inteiros) como parâmetros e retorna a média ponderada dos valores`);
         console.log('Questão 2');
         let nome = prompt('Digite o nome do aluno: ');
@@ -43,19 +47,19 @@
 
         //FUNÇÕES
         //Questão 1
-        function calcula_media(x, y) {
-            media = (x + y)/2;
+        function calcula_media(num1, num2) {
+            media = (num1 + num2)/2;
             return media;
         }
 
-        function calcula_produto(x, y) {
-            produto = x*y;
+        function calcula_produto(num1, num2) {
+            produto = num1*num2;
             return produto;
         } 
 
         //Questão 2
-        function calcula_media_ponderada(x, y, a, b) {
-            media_ponderada = (x*a + y*b) / (a + b);
+        function calcula_media_ponderada(nota1, nota2, peso1, peso2) {
+            media_ponderada = (nota1*peso1 + nota2*peso2) / (peso1 + peso2);
             return media_ponderada;
         }     
 
