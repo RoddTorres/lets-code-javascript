@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de Fixação 4</title>
+</head>
+<body>
+    <script>
+        //Questão 1
+        alert(`1 - Faça um programa que imprima na tela apenas os números ímpares entre 1 e 50.`);
+        console.log('Questão 1');
+        
+        let impares = [];
+        for (let i=1; i<=50; i++) {
+            if (i%2 == 0) {
+                continue;
+            } else {
+                console.log(i);
+                impares.push(' ' + i);
+            }
+        }
+        console.log(impares);
+        alert(impares);
+
+
+        //Questão 2
+        alert(`2 - Desenvolva um gerador de tabuada, capaz de gerar a tabuada de qualquer número inteiro entre 1 a 10. O usuário deve informar de qual numero ele deseja ver a tabuada.`);
+        console.log('Questão 2');
+        let numero = parseInt(prompt('Insira o número que mostraremos a tabuada: '));
+        
+        for (let i=1; i<=10; i++) {
+            console.log(`${numero}*${i} = ${numero * i}`);
+        }
+
+
+        //Questão 3
+        alert(`3 - Percorra uma lista de números (estática ou preenchida pelo usuário) e mostre o menor e o maior números dessa lista.`);
+        console.log('Questão 3');
+        let qtd_numeros = parseInt(prompt('Quantidade de números que você quer inserir: '));
+
+        let conjunto_numeros = [];
+        for (let i=0; i<qtd_numeros; i++) {
+            let numero = parseInt(prompt(`${(i+1)}º número: `));
+            let adicionar = conjunto_numeros.push(' ' + numero);
+        }
+        console.log(conjunto_numeros);
+        console.log(`O maior número digitado é ${Math.max(...conjunto_numeros)} e o menor é ${Math.min(...conjunto_numeros)}.`);
+        alert(`Números digitados: ${conjunto_numeros}
+        O maior número digitado é ${Math.max(...conjunto_numeros)} e o menor é ${Math.min(...conjunto_numeros)}.`);
+
+    </script>
+</body>
+</html>
