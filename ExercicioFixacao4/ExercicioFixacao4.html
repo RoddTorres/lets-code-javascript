@@ -40,7 +40,7 @@
         let conjunto_numeros = [];
         for (let i=0; i<qtd_numeros; i++) {
             let numero = parseInt(prompt(`${(i+1)}º número: `));
-            let adicionar = conjunto_numeros.push(' ' + numero);
+            conjunto_numeros.push(' ' + numero);
         }
         console.log(conjunto_numeros);
         console.log(`O maior número digitado é ${Math.max(...conjunto_numeros)} e o menor é ${Math.min(...conjunto_numeros)}.`);

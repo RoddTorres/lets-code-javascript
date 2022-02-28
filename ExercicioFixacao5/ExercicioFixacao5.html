@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de Fixação 5</title>
+</head>
+<body>
+    <script>
+        //Questão 1
+        alert(`1 - Faça uma função recursiva que mostre somente os números pares de um array de números.`);
+        console.log('Questão 1');
+
+        paresRecursiva(10, 80);
+
+        function paresRecursiva(min, max) {
+            let conjuntoPares = [];        
+            if ((min < max)) {
+                paresRecursiva(++min, max);
+                if (min % 2 == 0) {
+                    conjuntoPares.push(min);
+                }
+            }        
+           console.log(conjuntoPares);
+        }
+
+
+        //Questão 2
+        alert(`2 - Implemente a função de Fibonacci de forma recursiva.`);
+        console.log('Questão 2');
+
+        console.log(fibonacciRecursiva(30));
+
+        function fibonacciRecursiva(n) {
+            if (n <= 2) {
+                return (n-1);
+            } else {
+            return (fibonacciRecursiva(n - 1) + fibonacciRecursiva(n - 2));
+            }
+        }
+
+
+        //Questão 3
+        alert(`3 - Crie um array de objetos (pelo menos 5 itens) e implemente map, filter e reduce que façam sentido para 
+        o contexto escolhido.`);
+        console.log('Questão 3');
+
+        let dados = [
+            {
+                "cliente": "Abirosvaldo Fontes",
+                "idade": 60,
+                "email": "birobiro@gmail.com",
+                "despesa": 20000
+            },
+            {
+                "cliente": "Jocalosvaldo Santos Almeida",
+                "idade": 48,
+                "email": "jocalmeida@gmail.com",
+                "despesa": 34000
+            },
+            {
+                "cliente": "Languirosmar Altair Ferroso",
+                "idade": 70,
+                "email": "sem email",
+                "despesa": 10000
+            },
+            {
+                "cliente": "Clandestilene Altamira",
+                "idade": 64,
+                "email": "cland64@hotmail.com",
+                "despesa": 5320
+            },
+            {
+                "cliente": "Sofrenzildes Pereira",
+                "idade": 52,
+                "email": "pereiraeira@gmail.com",
+                "despesa": 2000
+            },
+            {
+                "cliente": "Rafaela da Silva",
+                "idade": 31,
+                "email": "silvarafa22@gmail.com",
+                "despesa": 12000
+            },
+            {
+                "cliente": "Silvia Santos",
+                "idade": 46,
+                "email": "sem email",
+                "despesa": 15000
+            }
+        ];
+        
+
+        //Utilizando o map
+        const arrayEmail = dados.map(obj => obj.email);
+        console.log(arrayEmail);
+
+
+        //Utilizando o filter
+        function emailsValidos(value) {
+            if (value.email != 'sem email') 
+                return value;
+        }
+
+        const contatosEmail = dados.filter(emailsValidos);
+        console.log(contatosEmail);
+        
+
+        //Utilizando o reduce
+        const totalDespesas = dados.reduce((prevValor, elemento) => prevValor + elemento.despesa, 0)
+        console.log(totalDespesas);
+
+
+    </script>
+</body>
+</html>
