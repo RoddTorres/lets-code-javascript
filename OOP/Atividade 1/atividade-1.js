@@ -46,7 +46,7 @@ pessoa.dirigir = function() {
     return "Vruuum";
 }
 
-//Criando o objeto humano com os mesmos métodos de pessoa
+//Criando o objeto humano com os mesmos métodos e atributos de pessoa
 const humano = {};
 
 humano["sexo"] = "F";
