@@ -1,204 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Forca</title>
 </head>
+
 <body>
     <script>
-
         let erros = 0;
         let palpites = [];
         let repetidas = [];
+        let temaEscolhido;
 
-        let tema = new Array;
-        tema [0] = ['FUTEBOL', 'VOLEI', 'TENIS', 'AUTOMOBILISMO', 'BASQUETE'];
-        tema [1] = ['LARANJA', 'BANANA', 'PESSEGO', 'MARACUJA', 'JABUTICABA'];
-        tema [2] = ['MACARRONADA', 'LASANHA', 'FEIJOADA', 'PIPOCA', 'QUEIJO'];
-        tema [3] = ['URUGUAI', 'BRASIL', 'ARGENTINA', 'CANADA', 'CHINA'];
-        tema [4] = ['MARCENEIRO', 'PINTOR', 'MEDICO', 'ENGENHEIRO', 'PROGRAMADOR'];
-
+        const tema = new Array;
+        tema[0] = ['FUTEBOL', 'VOLEI', 'TENIS', 'AUTOMOBILISMO', 'BASQUETE'];
+        tema[1] = ['LARANJA', 'BANANA', 'PESSEGO', 'MARACUJA', 'JABUTICABA'];
+        tema[2] = ['MACARRONADA', 'LASANHA', 'FEIJOADA', 'PIPOCA', 'QUEIJO'];
+        tema[3] = ['URUGUAI', 'BRASIL', 'ARGENTINA', 'CANADA', 'CHINA'];
+        tema[4] = ['MARCENEIRO', 'PINTOR', 'MEDICO', 'ENGENHEIRO', 'PROGRAMADOR'];
         
-        let numTema = parseInt(prompt(`Qual o tema a ser escolhido?  
+        escolhaTema(tema);
+        jogoDaForca(temaEscolhido);
+        restart();
+
+
+        function escolhaTema(tema) {
+            let numTema = parseInt(prompt(`Qual o tema a ser escolhido?  
             Digite 0 para Esportes
             Digite 1 para Frutas
             Digite 2 para Comida
             Digite 3 para Países
             Digite 4 para Profissões`));
 
-        escolhaTema (numTema);
-
-        let palavraSorteada = temaEscolhido[Math.floor(Math.random()*4)];
-        let palavra = palavraSorteada.toUpperCase();
-        let arrayPalavra = palavra.split('');
-        let displayPalavra = new Array(palavra.length);
-        displayPalavra.fill('_');
-
-
-        while (displayPalavra.includes('_')) {
-            letra = prompt(`DIGITE UMA LETRA: 
-            A palavra é: ${displayPalavra}
-            Seus palpites foram: ${palpites}
-            ${forca(erros)}`).toUpperCase();
-
-            while (palpites.includes(letra) || letra == '') {
-                if (parseInt(letra)) {
-                    letra = prompt(`Acho que algum número escapou no seu teclado.
-                    DIGITE UMA LETRA: 
-                    A palavra é: ${displayPalavra}
-                    Seus palpites foram: ${palpites}
-                    ${forca(erros)}`).toUpperCase();
-                } else {
-                    letra = prompt(`Já digitou isso, fera, ou então digitou algo inválido.
-                    DIGITE UMA LETRA: 
-                    A palavra é: ${displayPalavra}
-                    Seus palpites foram: ${palpites}
-                    ${forca(erros)}`).toUpperCase();
-                }
-            }
-        
-            palpites.push(letra);
-
-            if (arrayPalavra.includes(letra)) {
-                idx = arrayPalavra.indexOf(letra);
-                while (idx != -1) {
-                    repetidas.push(idx);
-                    displayPalavra[idx] = letra;
-                    idx = arrayPalavra.indexOf(letra, idx + 1);
-                }
-                console.log(displayPalavra);
-                posicao = idx + 1;
-
-                alert (`A palavra é: ${displayPalavra}
-                Seus palpites: ${palpites} 
-                ${forca(erros)}`);
-
-                repetidas = [];
+            if (numTema == 0) {
+                alert(`Você escolheu o tema Esporte.`);
+                return temaEscolhido = tema[0];
+            } else if (numTema == 1) {
+                alert(`Você escolheu o tema Frutas.`);
+                return temaEscolhido = tema[1];
+            } else if (numTema == 2) {
+                alert(`Você escolheu o tema Comida.`);
+                return temaEscolhido = tema[2];
+            } else if (numTema == 3) {
+                alert(`Você escolheu o tema Países.`);
+                return temaEscolhido = tema[3];
+            } else if (numTema == 4) {
+                alert(`Você escolheu o tema Profissões.`);
+                return temaEscolhido = tema[4];
             } else {
-                erros++;
-                if (parseInt(letra)) {
-                    alert(`Não existem números nesta forca. 
-                    A palavra é: ${displayPalavra}
-                    Seus palpites foram: ${palpites}
-                    ${forca(erros)}`)
-                } else {
-                    alert(`Essa letra aqui não tem. 
-                    A palavra é: ${displayPalavra}
-                    Seus palpites foram: ${palpites}
-                    ${forca(erros)}`)
-                }      
+                alert(`Comando inválido`);
+                return;
+            }
+        }
 
-                if (erros == 7) {
-                    alert(`VOCÊ MORREU! A palavra era: ${palavra}`);
-                    break;
+        function jogoDaForca(temaEscolhido) {
+            let palavraSorteada = temaEscolhido[Math.floor(Math.random() * 4)];
+            let palavra = palavraSorteada.toUpperCase();
+            let arrayPalavra = palavra.split('');
+            let displayPalavra = new Array(palavra.length);
+            displayPalavra.fill('_');
+
+
+            while (displayPalavra.includes('_')) {
+                letra = prompt(`DIGITE UMA LETRA: 
+                A palavra é: ${displayPalavra}
+                Seus palpites foram: ${palpites}`).toUpperCase();
+                forca(erros);
+
+                while (palpites.includes(letra) || letra == '') {
+                    if (parseInt(letra)) {
+                        letra = prompt(`ACHO QUE ALGUM NÚMERO ESCAPOU NO SEU TECLADO.
+                        DIGITE UMA LETRA: 
+                        A palavra é: ${displayPalavra}
+                        Seus palpites foram: ${palpites}`).toUpperCase();
+                        forca(erros);
+                    } else {
+                        letra = prompt(`JÁ DIGITOU ISSO, FERA, OU ENTÃO DIGITOU ALGO INVÁLIDO algo inválido.
+                        DIGITE UMA LETRA: 
+                        A palavra é: ${displayPalavra}
+                        Seus palpites foram: ${palpites}`).toUpperCase();
+                        forca(erros);
+                    }    
                 }
+
+                while (letra.length > 1) {
+                    letra = prompt(`NESSE JOGO SÓ VALE LETRA POR LETRA, TÁ LIGADO!?.
+                    DIGITE UMA LETRA: 
+                    A palavra é: ${displayPalavra}
+                    Seus palpites foram: ${palpites}`).toUpperCase();
+                    forca(erros);
+                }
+
+                palpites.push(letra);
+
+                if (arrayPalavra.includes(letra)) {
+                    idx = arrayPalavra.indexOf(letra);
+                    while (idx != -1) {
+                        repetidas.push(idx);
+                        displayPalavra[idx] = letra;
+                        idx = arrayPalavra.indexOf(letra, idx + 1);
+                    }
+                    console.log(displayPalavra);
+                    posicao = idx + 1;
+
+                    alert(`A palavra é: ${displayPalavra}
+                    Seus palpites: ${palpites}`);
+                    forca(erros);
+
+                    repetidas = [];
+                } else {
+                    erros++;
+                    if (parseInt(letra)) {
+                        alert(`Não existem números nesta forca. 
+                        A palavra é: ${displayPalavra}
+                        Seus palpites foram: ${palpites}`);
+                        forca(erros);
+                    } else {
+                        alert(`Essa letra aqui não tem. 
+                        A palavra é: ${displayPalavra}
+                        Seus palpites foram: ${palpites}`);
+                        forca(erros);
+                    }
+
+                    if (erros == 7) {
+                        alert(`VOCÊ MORREU! A palavra era: ${palavra}`);
+                        restart();
+                    }
+                }   
             }
-        }    
-        
-        if (displayPalavra.indexOf('_') === -1) {
-            alert(`VOCÊ SE LIVROU DA FORCA!!!!! PARABÉNS!!!!!`)
+
+            if (displayPalavra.indexOf('_') === -1) {
+                alert(`VOCÊ SE LIVROU DA FORCA!!!!! PARABÉNS!!!!!`)
+            }
         }
 
-
-
-        function escolhaTema (numTema) {
-            switch (numTema) {
-                case 0:
-                    alert(`Você escolheu o tema Esporte.`);
-                    return temaEscolhido = tema[0];
-                    break;
-                case 1:
-                    alert(`Você escolheu o tema Frutas.`);
-                    return temaEscolhido = tema[1];
-                    break;
-                case 2:
-                    alert(`Você escolheu o tema Comida.`);
-                    return temaEscolhido = tema[2];
-                    break;
-                case 3:
-                    alert(`Você escolheu o tema Países.`);
-                    return temaEscolhido = tema[3];
-                    break;
-                case 4:
-                    alert(`Você escolheu o tema Profissões.`);
-                    return temaEscolhido = tema[4];
-                    break;
+        function restart() {
+            let restart = prompt("Você quer jogar novamente?? (s/n)").toUpperCase();
+            while (restart == "S") {
+                erros = 0;
+                palpites = [];
+                escolhaTema(tema)
+                jogoDaForca(temaEscolhido);
+                restart();
+            }
+            if (restart == "N") {
+                alert('Acabou o Jogo. Pode sair, colega');
             }
         }
 
-
-        function forca (erros) {
-            switch (erros) {
-                case 0:
-                    alert(` _______           
+        function forca(erros) {
+            if (erros == 0) {
+                alert(` _______           
 |          
 |          
 |          
 |          
 |`)
-                    break;
-                case 1:
-                    alert(` _______           
+            } else if (erros == 1) {
+                alert(` _______           
 |          O
 |          
 |          
 |          
 |`)
-                    break;
-                case 2:
-                    alert(` _______           
+            } else if (erros == 2) {
+                alert(` _______           
 |          O
 |           |
 |          
 |          
 |`)
-                    break;
-                case 3:
-                    alert(` _______           
+            } else if (erros == 3) {
+                alert(` _______           
 |          O
 |           |
 |           |
 |          
 |`)
-                    break;
-                case 4:
-                    alert(` _______           
+            } else if (erros == 4) {
+                alert(` _______           
 |          O
 |          /|
 |           |
 |          
 |`)
-                    break;
-                case 5:
-                    alert(` _______           
+            } else if (erros == 5) {
+                alert(` _______           
 |          O
 |          /|\\
 |           |
 |          
 |`)
-                    break;
-                case 6:
-                    alert(` _______           
+            } else if (erros == 6) {
+                alert(` _______           
 |          O
 |          /|\\
 |           |
 |          / 
 |`)
-                    break;
-                case 7:
-                    alert(` _______           
+            } else if (erros == 7) {
+                alert(` _______           
 |          O
 |          /|\\
 |           |
 |          / \\
 |     Perdemo!`)
-                    break;
             }
         }
 
-
     </script>
 </body>
+
 </html>
